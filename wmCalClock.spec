@@ -38,14 +38,13 @@ install Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 #install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-gzip -9nf BUGS CHANGES HINTS README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc BUGS CHANGES HINTS README TODO
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*
 #%{_applnkdir}/DockApplets/wmCalClock.desktop
