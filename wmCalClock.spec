@@ -8,8 +8,8 @@ Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:      GPL
 Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.gz
 Source1:	wmCalClock.desktop
-BuildPrereq:	XFree86-devel
-BuildPrereq:	xpm-devel
+BuildRequires:	XFree86-devel
+BuildRequires:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define	_prefix	/usr/X11R6
