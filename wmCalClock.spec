@@ -45,4 +45,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc BUGS CHANGES HINTS README TODO
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*
-#%{_applnkdir}/DockApplets/wmCalClock.desktop
+#%%{_applnkdir}/DockApplets/wmCalClock.desktop
