@@ -6,6 +6,7 @@ Release:	4.1
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
+# Source0-md5:	a401ded0e1fee4bcc4623076159bca41
 Source1:	%{name}.desktop
 Patch0:		%{name}-locale.patch.gz
 URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
