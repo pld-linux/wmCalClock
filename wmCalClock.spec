@@ -27,7 +27,7 @@ make -C wmCalClock \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/usr/X11R6/{bin,man/man1}
+install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/X11R6/{bin,man/man1}}
 
 make -C wmCalClock install DESTDIR=$RPM_BUILD_ROOT/usr/X11R6/
 
@@ -44,11 +44,15 @@ rm -rf $RPM_BUILD_ROOT
 %doc {BUGS,CHANGES,HINTS,README,TODO}.gz
 %attr(755,root,root) /usr/X11R6/bin/wmCalClock
 /usr/X11R6/man/man1/wmCalClock.1.gz
-%config(missingok) /etc/X11/wmconfig/wmCalClock
+/etc/X11/wmconfig/wmCalClock
 
 %changelog
-* Tue Apr 20 1999 Piotr Czerwiñski <pius@pld.org.pl>
+* Thu Apr 22 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.22-2]
+- fixed installing wmconfig file,
+- removed %config from /etc/X11/wmconfig/wmCalClock.
+
+* Tue Apr 20 1999 Piotr Czerwiñski <pius@pld.org.pl>
 - added BuildPrereq: XFree86-devel,
 - recompiled on rpm 3,
 - cosmetics.
