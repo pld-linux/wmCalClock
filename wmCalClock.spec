@@ -4,10 +4,11 @@ Name:		wmCalClock
 Version:	1.25
 Release:	1
 Group:		X11/Window Managers/Tools
+Group(de):	X11/Fenstermanager/Werkzeuge
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
-Copyright:      GPL
+License:	GPL
 Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.gz
-Source1:	wmCalClock.desktop
+Source1:	%{name}.desktop
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -15,30 +16,30 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define 	_mandir 	%{_prefix}/man
 
 %description
-wmCalClock is a simple Calendar Clock for the WindowMaker/AfterStep dock. 
+wmCalClock is a simple Calendar Clock for the WindowMaker/AfterStep
+dock.
 
 %description -l pl
 wmCalClock jest prostym, dokowalnym zegarem z kalendarzem dla
-WindowMakera/AfterStepa. 
+WindowMakera/AfterStepa.
 
 %prep
 %setup -q
 
 %build
 %{__make} -C Src \
-	CFLAGS="$RPM_OPT_FLAGS -Wall"
+	CFLAGS="%{rpmcflags} -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
 	$RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-install -s Src/%{name} $RPM_BUILD_ROOT%{_bindir}
+install Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
-	BUGS CHANGES HINTS README TODO \
+gzip -9nf BUGS CHANGES HINTS README TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
