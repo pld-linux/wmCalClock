@@ -6,7 +6,8 @@ Release:	1
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:      GPL
-Source:		ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.bz2
+Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.bz2
+Source1:	wmCalClock.wmconfig
 BuildRoot: 	/tmp/%{name}-%{version}-root
 
 %description
@@ -28,6 +29,8 @@ install -d $RPM_BUILD_ROOT/usr/X11R6/{bin,man/man1}
 
 make -C wmCalClock install DESTDIR=$RPM_BUILD_ROOT/usr/X11R6/
 
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/wmCalClock
+
 gzip -9nf BUGS CHANGES HINTS README TODO \
 	$RPM_BUILD_ROOT/usr/X11R6/man/man1/wmCalClock.1
 
@@ -36,9 +39,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc BUGS.gz CHANGES.gz HINTS.gz README.gz TODO.gz
+%doc {BUGS,CHANGES,HINTS,README,TODO}.gz
 %attr(755,root,root) /usr/X11R6/bin/wmCalClock
 /usr/X11R6/man/man1/wmCalClock.1.gz
+%config(missingok) /etc/X11/wmconfig/wmCalClock
 
 %changelog
 * Fri Mar 19 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
