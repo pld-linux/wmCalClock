@@ -13,6 +13,7 @@ BuildPrereq:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %define	_prefix	/usr/X11R6
+%define _mandir %{_prefix}/man
 
 %description
 wmCalClock is a simple Calendar Clock for the WindowMaker/AfterStep dock. 
