@@ -3,6 +3,6 @@ Name=WmCalClock
 Comment=A Simple Calendar Clock
 Comment[pl]=Prosty zegar z kalendarzem
 Exec=wmCalClock
-Terminal=0
+Terminal=false
 Type=Application
 # vi: encoding=utf-8
