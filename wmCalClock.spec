@@ -2,11 +2,12 @@ Summary:	wmCalClock - a simple Calendar Clock
 Summary(pl):	wmCalClock - prosty zegar z kalendarzem
 Name:		wmCalClock
 Version:	1.25
-Release:	3
+Release:	4
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
+Patch0:		%{name}-locale.patch.gz
 URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -22,6 +23,8 @@ WindowMakera/AfterStepa.
 
 %prep
 %setup -q
+
+%patch0 -p0
 
 %build
 %{__make} -C Src \
