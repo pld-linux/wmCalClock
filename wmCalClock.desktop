@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=wmCalClock
+Comment=A Simple Calendar Clock
+Comment[pl]=Prosty zegar z kalendarzem
+Exec=wmCalClock
+Terminal=0
+Type=Application
