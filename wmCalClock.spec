@@ -50,14 +50,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*
 /etc/X11/applnk/DockApplets/wmCalClock.desktop
-
-%changelog
-* Mon May 24 1999 Piotr Czerwiñski <pius@pld.org.pl> 
-  [1.24-1]
-- updated to 1.24.
-
-* Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
-  [1.22-3]
-- package is FHS 2.0 compliant,
-- based on spec file written by Ian Macdonald <ianmacd@xs4all.nl>,
-  rewritten for PLD use by me and Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>.
