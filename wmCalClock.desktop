@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=wmCalClock
+Name=WmCalClock
 Comment=A Simple Calendar Clock
 Comment[pl]=Prosty zegar z kalendarzem
 Exec=wmCalClock
