@@ -2,7 +2,7 @@ Summary:	wmCalClock - a simple Calendar Clock
 Summary(pl):	wmCalClock - prosty zegar z kalendarzem
 Name:		wmCalClock
 Version:	1.25
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Window Managers/Tools
 Group(de):	X11/Fenstermanager/Werkzeuge
@@ -38,7 +38,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
 
 install Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
+#install %{SOURCE1} $RPM_BUILD_ROOT%{_applnkdir}/DockApplets
 
 gzip -9nf BUGS CHANGES HINTS README TODO
 
@@ -50,4 +50,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*
-%{_applnkdir}/DockApplets/wmCalClock.desktop
+#%{_applnkdir}/DockApplets/wmCalClock.desktop
