@@ -2,7 +2,7 @@ Summary:	wmCalClock - a simple Calendar Clock
 Summary(pl):	wmCalClock - prosty zegar z kalendarzem
 Name:		wmCalClock
 Version:	1.25
-Release:	5
+Release:	6
 License:	GPL
 Group:		X11/Window Managers/Tools
 Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
@@ -29,7 +29,8 @@ WindowMakera/AfterStepa.
 
 %build
 %{__make} -C Src \
-	CFLAGS="%{rpmcflags} -Wall"
+	CFLAGS="%{rpmcflags} -Wall" \
+	LIBDIR="-L/usr/X11R6/%{_lib}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
