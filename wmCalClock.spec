@@ -8,10 +8,11 @@ Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:      GPL
 Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.bz2
 Source1:	wmCalClock.wmconfig
-Patch:		wmCalClock-fhs.patch
 BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
 BuildRoot: 	/tmp/%{name}-%{version}-root
+
+%define	_prefix		/usr/X11R6
 
 %description
 wmCalClock is a simple Calendar Clock for the WindowMaker/AfterStep dock. 
@@ -22,22 +23,24 @@ WindowMakera/AfterStepa.
 
 %prep
 %setup -q
-%patch -p0
 
 %build
-make -C wmCalClock \
+make -C %{name} \
 	CFLAGS="$RPM_OPT_FLAGS -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/{etc/X11/wmconfig,usr/X11R6/{bin,share/man/man1}}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
+	$RPM_BUILD_ROOT/etc/X11/wmconfig
 
-make -C wmCalClock install DESTDIR=$RPM_BUILD_ROOT/usr/X11R6
+install -s %{name}/%{name} $RPM_BUILD_ROOT%{_bindir}
+install %{name}/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/wmCalClock
+
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
 
 gzip -9nf BUGS CHANGES HINTS README TODO \
-	$RPM_BUILD_ROOT/usr/X11R6/share/man/man1/wmCalClock.1
+	$RPM_BUILD_ROOT%{_mandir}/man1/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -45,14 +48,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc {BUGS,CHANGES,HINTS,README,TODO}.gz
-%attr(755,root,root) /usr/X11R6/bin/wmCalClock
-/usr/X11R6/share/man/man1/wmCalClock.1.gz
-/etc/X11/wmconfig/wmCalClock
+%attr(755,root,root) %{_bindir}/%{name}
+%{_mandir}/man1/*
+/etc/X11/wmconfig/%{name}
 
 %changelog
-* Wed May 12 1999 Piotr Czerwiñski <pius@pld.org.pl>
+* Mon May 17 1999 Piotr Czerwiñski <pius@pld.org.pl>
   [1.22-3]
-- added wmCalClock-fhs.patch,
+- added using more rpm macros.
+
+* Wed May 12 1999 Piotr Czerwiñski <pius@pld.org.pl>
 - added "BuildPrereq: xpm-devel",
 - package is now FHS 2.0 compliant.
 
