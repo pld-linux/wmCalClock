@@ -20,7 +20,7 @@ WindowMakera/AfterStepa.
 %setup -q
 
 %build
-make -C wmCalClock CFLAGS="$RPM_OPR_FLAGS -Wall"
+make -C wmCalClock CFLAGS="$RPM_OPT_FLAGS -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -44,6 +44,7 @@ rm -rf $RPM_BUILD_ROOT
 * Fri Mar 19 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.22-1]
 - simplifications in %install,
+- added using $RPM_OPT_FLAGS during compile,
 - changed Group to X11/Window Managers/Tools.
 
 * Tue Mar 18 1999 Piotr Czerwiñski <pius@pld.org.pl>
