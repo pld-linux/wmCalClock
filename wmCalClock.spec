@@ -1,8 +1,8 @@
 Summary:	wmCalClock - a simple Calendar Clock
 Summary(pl):	wmCalClock - prosty zegar z kalendarzem
 Name:		wmCalClock
-Version:	1.24
-Release:	2
+Version:	1.25
+Release:	1
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:      GPL
