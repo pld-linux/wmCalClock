@@ -2,12 +2,12 @@ Summary:	wmCalClock - a simple Calendar Clock
 Summary(pl):	wmCalClock - prosty zegar z kalendarzem
 Name:		wmCalClock
 Version:	1.24
-Release:	1
+Release:	2
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:      GPL
 Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.gz
-Source1:	wmCalClock.wmconfig
+Source1:	wmCalClock.desktop
 BuildPrereq:	XFree86-devel
 BuildPrereq:	xpm-devel
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -32,11 +32,11 @@ make -C Src \
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-	$RPM_BUILD_ROOT/etc/X11/wmconfig
+	$RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
 
 install -s Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
-install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/wmconfig/%{name}
+install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
 
 gzip -9nf BUGS CHANGES HINTS README TODO \
 	$RPM_BUILD_ROOT%{_mandir}/man1/*
@@ -49,7 +49,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc {BUGS,CHANGES,HINTS,README,TODO}.gz
 %attr(755,root,root) %{_bindir}/%{name}
 %{_mandir}/man1/*
-/etc/X11/wmconfig/%{name}
+/etc/X11/applnk/DockApplets/wmCalClock.desktop
 
 %changelog
 * Mon May 24 1999 Piotr Czerwiñski <pius@pld.org.pl> 
