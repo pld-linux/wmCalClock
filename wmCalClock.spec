@@ -3,8 +3,8 @@ Summary(pl):	wmCalClock - prosty zegar z kalendarzem
 Name:		wmCalClock
 Version:	1.22 
 Release:	1
-Group:		X11/Window Managers
-Group(pl):	X11/Zarz±dcy Okien
+Group:		X11/Window Managers/Tools                                                                                     
+Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:      GPL
 Source:		ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.bz2
 BuildRoot: 	/tmp/%{name}-%{version}-root
@@ -20,17 +20,19 @@ WindowMakera/AfterStepa.
 %setup -q
 
 %build
-make -C wmCalClock 
+make -C wmCalClock CFLAGS="$RPM_OPR_FLAGS -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 install -d $RPM_BUILD_ROOT/usr/X11R6/{bin,man/man1}
-install  wmCalClock/wmCalClock $RPM_BUILD_ROOT/usr/X11R6/bin
-install  wmCalClock/wmCalClock.1 $RPM_BUILD_ROOT/usr/X11R6/man/man1
 
-gzip -9nf BUGS CHANGES HINTS README TODO
-gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/wmCalClock.1
+make -C wmCalClock install DESTDIR=$RPM_BUILD_ROOT/usr/X11R6/
+
+gzip -9nf BUGS CHANGES HINTS README TODO \
+	$RPM_BUILD_ROOT/usr/X11R6/man/man1/wmCalClock.1
+
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
@@ -38,12 +40,13 @@ gzip -9nf $RPM_BUILD_ROOT/usr/X11R6/man/man1/wmCalClock.1
 %attr(755,root,root) /usr/X11R6/bin/wmCalClock
 /usr/X11R6/man/man1/wmCalClock.1.gz
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %changelog
-* Tue Mar 18 1999 Piotr Czerwiñski <pius@pld.org.pl>
+* Fri Mar 19 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.22-1]
+- simplifications in %install,
+- changed Group to X11/Window Managers/Tools.
+
+* Tue Mar 18 1999 Piotr Czerwiñski <pius@pld.org.pl>
 - upgraded to 1.22,
 - changed BuildRoot to /tmp/%%{name}-%%{version}-root,
 - added pl translation,
@@ -55,5 +58,4 @@ rm -rf $RPM_BUILD_ROOT
 - cosmetic changes.
 
 * Tue Feb  9 1999 Ian Macdonald <ianmacd@xs4all.nl>
-
 - first RPM release
