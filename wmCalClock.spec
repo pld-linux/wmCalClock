@@ -2,12 +2,13 @@ Summary:	wmCalClock - a simple Calendar Clock
 Summary(pl):	wmCalClock - prosty zegar z kalendarzem
 Name:		wmCalClock
 Version:	1.22 
-Release:	1
+Release:	2
 Group:		X11/Window Managers/Tools
 Group(pl):	X11/Zarz±dcy Okien/Narzêdzia
 Copyright:      GPL
 Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.bz2
 Source1:	wmCalClock.wmconfig
+BuildPrereq:	XFree86-devel
 BuildRoot: 	/tmp/%{name}-%{version}-root
 
 %description
@@ -21,7 +22,8 @@ WindowMakera/AfterStepa.
 %setup -q
 
 %build
-make -C wmCalClock CFLAGS="$RPM_OPT_FLAGS -Wall"
+make -C wmCalClock \
+	CFLAGS="$RPM_OPT_FLAGS -Wall"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -45,6 +47,12 @@ rm -rf $RPM_BUILD_ROOT
 %config(missingok) /etc/X11/wmconfig/wmCalClock
 
 %changelog
+* Tue Apr 20 1999 Piotr Czerwiñski <pius@pld.org.pl>
+  [1.22-2]
+- added BuildPrereq: XFree86-devel,
+- recompiled on rpm 3,
+- cosmetics.
+
 * Fri Mar 19 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [1.22-1]
 - simplifications in %install,
