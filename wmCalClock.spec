@@ -9,7 +9,6 @@ Copyright:      GPL
 Source0:	ftp://leadbelly.lanl.gov/pub/mgh/%{name}-%{version}.tar.gz
 Source1:	wmCalClock.desktop
 BuildRequires:	XFree86-devel
-BuildRequires:	xpm-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
