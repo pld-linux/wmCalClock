@@ -38,8 +38,8 @@ install -s Src/%{name} $RPM_BUILD_ROOT%{_bindir}
 install Src/%{name}.1 $RPM_BUILD_ROOT%{_mandir}/man1
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/X11/applnk/DockApplets
 
-gzip -9nf BUGS CHANGES HINTS README TODO \
-	$RPM_BUILD_ROOT%{_mandir}/man1/*
+gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man1/* \
+	BUGS CHANGES HINTS README TODO \
 
 %clean
 rm -rf $RPM_BUILD_ROOT
