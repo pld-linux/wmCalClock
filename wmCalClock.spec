@@ -26,7 +26,7 @@ WindowMakera/AfterStepa.
 %setup -q
 
 %build
-make -C Src \
+%{__make} -C Src \
 	CFLAGS="$RPM_OPT_FLAGS -Wall"
 
 %install
