@@ -1,5 +1,5 @@
 Summary:	wmCalClock - a simple Calendar Clock
-Summary(pl):	wmCalClock - prosty zegar z kalendarzem
+Summary(pl.UTF-8):   wmCalClock - prosty zegar z kalendarzem
 Name:		wmCalClock
 Version:	1.25
 Release:	6
@@ -18,7 +18,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 wmCalClock is a simple Calendar Clock for the WindowMaker/AfterStep
 dock.
 
-%description -l pl
+%description -l pl.UTF-8
 wmCalClock jest prostym, dokowalnym zegarem z kalendarzem dla
 WindowMakera/AfterStepa.
 
