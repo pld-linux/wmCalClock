@@ -1,5 +1,5 @@
 Summary:	wmCalClock - a simple Calendar Clock
-Summary(pl.UTF-8):   wmCalClock - prosty zegar z kalendarzem
+Summary(pl.UTF-8):	wmCalClock - prosty zegar z kalendarzem
 Name:		wmCalClock
 Version:	1.25
 Release:	6
