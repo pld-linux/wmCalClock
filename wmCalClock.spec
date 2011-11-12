@@ -9,6 +9,7 @@ Source0:	http://nis-www.lanl.gov/~mgh/WindowMaker/%{name}-%{version}.tar.gz
 # Source0-md5:	a401ded0e1fee4bcc4623076159bca41
 Source1:	%{name}.desktop
 Patch0:		%{name}-locale.patch.gz
+# Patch1-md5:   86d987d13a70cb4460c9cc85a719128b
 URL:		http://nis-www.lanl.gov/~mgh/WindowMaker/DockApps.shtml
 BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
